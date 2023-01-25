@@ -22,7 +22,6 @@ const SignUpForm = () => {
       alert('passwords do noot match')
       return
     }
-
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email, password)
       await createUserDocumentFromAuth(user, { displayName })
@@ -38,7 +37,7 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target
-    setFormFields({ ...formFields, [name]: value })
+    setFormFields((formFields) => { return { ...formFields, [name]: value } })
   }
 
   const resetFormField = () => {

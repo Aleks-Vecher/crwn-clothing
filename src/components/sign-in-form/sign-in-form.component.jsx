@@ -6,6 +6,7 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils'
+
 import './sign-in-form.style.scss'
 
 const defaultFormfields = {
@@ -21,8 +22,7 @@ const SignInForm = () => {
     event.preventDefault()
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password)
-      console.log(response);
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password)
       resetFormField()
     } catch (error) {
       switch (error.code) {
@@ -38,7 +38,6 @@ const SignInForm = () => {
     }
 
   }
-
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormFields({ ...formFields, [name]: value })
@@ -49,8 +48,7 @@ const SignInForm = () => {
   }
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup()
-    await createUserDocumentFromAuth(user)
+    await signInWithGooglePopup()
   }
 
   return (

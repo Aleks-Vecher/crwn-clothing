@@ -6,7 +6,7 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { ReactComponent as CrwLogo } from '../../assets/crown.svg'
 import { selectCurrentUser } from '../../store/user/user.selector'
 
-import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles.jsx'
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles'
 import { signOutStart } from '../../store/user/user.acton'
 import { useDispatch } from "react-redux"
 
@@ -27,7 +27,7 @@ const Navigation = () => {
             SHOP
           </NavLink>
           {currentUser ? (
-            <NavLink onClick={signOutUser} >SIGN OUT</NavLink>
+            <NavLink as='span' onClick={signOutUser} >SIGN OUT</NavLink>
           ) : (<NavLink to='/auth' >
             SIGN IN
           </NavLink>)

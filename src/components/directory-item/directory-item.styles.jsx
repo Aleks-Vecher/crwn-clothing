@@ -43,8 +43,16 @@ export const DirectoryItemContainer = styled.div`
   margin: 0 7.5px 15px;
   overflow: hidden;
 
+  &: first-child {
+    margin-right: 7.5px;
+  }
+  
+  &: last-child {
+    margin-left: 7.5px;
+  }
+
   &:hover {
-  cursor: pointer;
+    cursor: pointer;
 
     & ${BackgroundImage} {
     transform: scale(1.1);
@@ -55,12 +63,7 @@ export const DirectoryItemContainer = styled.div`
     opacity: 0.9;
   }
 }
-
-  &: first-child {
-  margin-right: 7.5px;
-}
-
-  &: last-child {
-  margin-left: 7.5px;
-}
+  @media screen and (max-width: 800px){
+    height:200px
+  }
 `

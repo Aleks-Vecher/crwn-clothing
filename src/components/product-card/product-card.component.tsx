@@ -9,6 +9,7 @@ type ProductCardProps = {
   product: CategoryItem;
 };
 
+
 const ProductCard = ({ product }: ProductCardProps) => {
   const { name, price, imageUrl } = product
   const dispatch = useDispatch()

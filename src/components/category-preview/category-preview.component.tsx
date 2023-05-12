@@ -27,5 +27,4 @@ const CategoryPreview = ({ title, products }: CategoryPreviewProps) => {
   )
 }
 
-
 export default CategoryPreview
